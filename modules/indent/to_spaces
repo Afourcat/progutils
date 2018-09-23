@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+while true; do
+    read -p "Are you sure about transforming 4 spaces to tabs [Yes/No]: " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+find . -type f -exec sed -i.orig 's/    /\t/g' {} +

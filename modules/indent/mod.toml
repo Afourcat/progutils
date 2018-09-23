@@ -1,0 +1,7 @@
+
+name="indent"
+
+[commands]
+tabs="to_tabs"
+spaces="to_spaces"
+
