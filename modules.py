@@ -19,6 +19,9 @@ class Module:
         for key, cmd in to["commands"].items():
             self.cmds[key] = Command(key, "modules/{}/{}".format(name, cmd))
 
+    def list(self):
+        print(self.__str__())
+
     def __str__(self):
         output = "Module: {}\n".format(self.name)
         for key, cmd in self.cmds.items():

@@ -2,6 +2,7 @@
 
 import toml
 import os
+import subprocess
 
 class Command:
     """ Command class represent a command in a modules """
@@ -17,4 +18,4 @@ class Command:
         print(self.__str__())
 
     def execute(self):
-        pass
+        subprocess.call(self.path);
