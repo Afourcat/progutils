@@ -5,13 +5,14 @@ import os
 from modules import Module
 
 help = "OUAIS"
+path = "{}/.config/progutils/".format(os.getenv("HOME"))
 
 def open_modules():
     """ Function that will load all modules """
-    dirs = os.listdir("modules/")
+    dirs = os.listdir(path + "modules/")
     modules = {}
     for dir in dirs:
-        modules[dir] = Module(dir)
+        modules[dir] = Module(dir, path)
     return modules
 
 def list_modules(modules):

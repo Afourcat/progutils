@@ -10,9 +10,9 @@ class Module:
     modules define a type of a command and all commands linked to it
     """
 
-    def __init__(self, name):
+    def __init__(self, name, path):
         """Constructor of a module"""
-        with open("modules/{}/mod.toml".format(name)) as f:
+        with open(path + "modules/{}/mod.toml".format(name)) as f:
             to = toml.load(f)
         self.name = to["name"]
         self.cmds = {}
@@ -21,7 +21,7 @@ class Module:
         except KeyError:
             self.description = "No description"
         for key, cmd in to["commands"].items():
-            self.cmds[key] = Command(key, "modules/{}/{}".format(name, cmd))
+            self.cmds[key] = Command(key, path + "modules/{}/{}".format(name, cmd))
 
     def list(self):
         print(self.__str__())
