@@ -16,6 +16,10 @@ class Module:
             to = toml.load(f)
         self.name = to["name"]
         self.cmds = {}
+        try:
+            self.description = to["description"]
+        except KeyError:
+            self.description = "No description"
         for key, cmd in to["commands"].items():
             self.cmds[key] = Command(key, "modules/{}/{}".format(name, cmd))
 
@@ -23,7 +27,7 @@ class Module:
         print(self.__str__())
 
     def __str__(self):
-        output = "Module: {}\n".format(self.name)
+        output = "Module: {}\nDescription: {}\n".format(self.name, self.description)
         for key, cmd in self.cmds.items():
             output += "\t" + cmd.__str__()
         return output

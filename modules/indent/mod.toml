@@ -1,6 +1,8 @@
 
 name="indent"
 
+description="All script that take care of ident"
+
 [commands]
 tabs="to_tabs"
 spaces="to_spaces"

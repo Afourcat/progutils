@@ -1,4 +1,6 @@
 name="base"
 
+description="All script that cannot be classed into another module"
+
 [commands]
 test="test.sh"
